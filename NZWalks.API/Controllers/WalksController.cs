@@ -33,6 +33,7 @@ namespace NZWalks.API.Controllers
             return Ok(walksDTO);
         }
 
+
         [HttpGet]
         [Route("{Id:guid}")]
         [ActionName("GetWalkAsync")]

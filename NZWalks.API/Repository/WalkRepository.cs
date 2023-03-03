@@ -8,10 +8,12 @@ namespace NZWalks.API.Repository
     {
         private readonly NZWalksDbContext nZWalksDbContext;
 
+
         public WalkRepository(NZWalksDbContext nZWalksDbContext)
         {
             this.nZWalksDbContext = nZWalksDbContext;
         }
+
 
         public async Task<IEnumerable<Walk>> GetAllAsync()
         {
@@ -24,6 +26,7 @@ namespace NZWalks.API.Repository
                 .FirstOrDefaultAsync(x => x.Id == Id);
         }
 
+
         public async Task<Walk> AddWalkAsync(Walk walk)
         {
             walk.Id = Guid.NewGuid();
@@ -31,6 +34,7 @@ namespace NZWalks.API.Repository
             await nZWalksDbContext.SaveChangesAsync();
             return walk;
         }
+
 
         public async Task<Walk> UpdateWalkAsync(Guid id, Walk walk)
         {
